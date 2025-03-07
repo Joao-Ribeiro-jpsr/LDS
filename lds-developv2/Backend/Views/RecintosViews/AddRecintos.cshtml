@@ -1,0 +1,108 @@
+@model RecintoDesportivo
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container" style="padding-top:300px; padding-bottom:80px;">
+    <div class="row">
+        <div class="col-md-6">
+            <main role="main" class="pb-3">
+               <form method="post">
+          <h2>Friendly+</h2>
+          <h1 class="h3 mb-3 fw-normal">Adiciona o recinto!</h1>
+          <div asp-validation-summary="All"></div>
+          <div class="form-floating" >
+            <input type="text" class="form-control" asp-for="name" id="name" name="name" autocomplete="name" required>
+            <label for="name" asp-for="name" >Name</label>
+            <div class="invalid-feedback">Your name is required.</div>
+             <span asp-validation-for="name" class="text-danger"></span>
+          </div>
+
+          <hr class="my-4" >
+
+          <div class="form-floating" >
+            <input type="text" class="form-control"  asp-for="concelho" id="concelho" name="concelho" autocomplete="concelho" required>
+            <label for="concelho" asp-for="concelho">Concelho</label>
+            <div class="invalid-feedback">Your county is needed.</div>
+             <span asp-validation-for="concelho" class="text-danger"></span>
+          </div>
+          
+           <hr class="my-4">
+
+          <div class="form-floating">
+            <input type="text" class="form-control" asp-for="latitude" id="latitude" name="latitude" autocomplete="latitude" required>
+            <label for="latitude" asp-for="latitude" >Latitude</label>
+            <div class="invalid-feedback">Your latitude are required.</div>
+             <span asp-validation-for="latitude" class="text-danger"></span>
+          </div>
+          <div class="form-floating" >
+            <input type="text" class="form-control" asp-for="longitude" id="longitude" name="longitude" autocomplete="longitude" required>
+            <label for="longitude" asp-for="longitude">Longitude</label>
+            <div class="invalid-feedback">Your longitude are required.</div>
+             <span asp-validation-for="longitude" class="text-danger"></span>
+          </div>
+
+          <hr class="my-4" >
+          <div class="form-floating" >
+            <input type="text" class="form-control"  asp-for="modalidade" id="modalidade" name="modalidade" autocomplete="modalidade" required>
+            <label for="modalidade" asp-for="modalidade">Modalidade</label>
+            <div class="invalid-feedback">Your sport is needed.</div>
+             <span asp-validation-for="modalidade" class="text-danger"></span>
+          </div>         
+
+          <hr class="my-4" > 
+          <h1 class="h3 mb-3 fw-normal">Add prices!</h1>
+
+          <div class="form-floating">
+            <input type="number" class="form-control" asp-for="preco" id="preco" name="preco" min="0" autocomplete="preco" required>
+            <label for="preco" asp-for="preco" >Preços</label>
+            <div class="invalid-feedback">Your price is required.</div>
+             <span asp-validation-for="preco" class="text-danger"></span>
+          </div>
+
+          <div class="form-floating">
+            <input type="text" class="form-control" asp-for="contacto" id="contacto" name="contacto" min="0" autocomplete="contacto">
+            <label for="contacto" asp-for="contacto" >Contacto do recinto</label>
+             <span asp-validation-for="contacto" class="text-danger"></span>
+          </div>
+
+          <hr class="my-4" >
+
+          <div class="form-floating">
+            <input type="text" class="form-control" asp-for="imagem" id="imagem" name="imagem" autocomplete="imagem" required>
+            <label for="imagem" asp-for="imagem" >Imagem</label>
+            <div class="invalid-feedback">Your name is required.</div>
+            <span asp-validation-for="imagem" class="text-danger"></span>
+          </div>
+
+          <div class="form-floating">
+            <input type="text" class="form-control" asp-for="description" id="description" name="description" autocomplete="description" >
+            <label for="description" asp-for="description">Descrição</label>
+             <span asp-validation-for="description" class="text-danger"></span>
+          </div>
+          
+          <hr class="my-4"  > 
+
+          <button type="submit" class="btn btn-primary" >AddRecintos</button>
+          <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back</a>
+  
+        </form>
+            </main>
+        </div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <img src="~/bola.png" alt="Descrição da Imagem" class="img-fluid" style="width: 100%; height: auto;">
+            </div>
+       </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

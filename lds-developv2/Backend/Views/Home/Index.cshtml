@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+
+ <div class="container" style="padding-top: 100px; margin: auto;">
+    <div class="container-top">
+
+      <div class="card">
+        <div class="face orange">
+          <div class="imgbox">
+            <span class="material-symbols-outlined">
+                person_add
+                </span>
+              <h3>Users</h3>
+          </div>
+        </div>
+        <div class="face-2">
+          <div class="content">
+            <p>Gere os teus utilizadores!</p>
+            <a asp-controller="UserViews" asp-action="UsersList">View more</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="face green">
+          <div class="imgbox">
+            <span class="material-symbols-outlined">
+            sports_tennis
+            </span>
+              <h3>Recintos</h3>
+          </div>
+        </div>
+        <div class="face-2">
+          <div class="content">
+            <p>Gere os teus recintos!</p>
+            <a asp-controller="RecintosViews" asp-action="RecintosList">View more</a>
+            <a  asp-controller="RecintosViews" asp-action="AddRecintos">Adiciona Recintos!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="face blue">
+          <div class="imgbox">
+            <span class="material-symbols-outlined">
+              query_stats
+              </span>
+              <h3>Reservas</h3>
+          </div>
+        </div>
+        <div class="face-2">
+          <div class="content">
+            <p>Reservas</p>
+            <a asp-controller="ReservasViews" asp-action="ReservasList" > Verifica as reservas</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br>
+    <br>
+
+  </div>

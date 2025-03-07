@@ -1,0 +1,83 @@
+﻿@model User
+@{
+    ViewData["Title"] = "UserEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/UserList.css" />
+</head>
+
+<div class="container" style="box-shadow: 0px 8px 17px #858585, 0px 0px 2px #858585; background-color: rgb(255, 255, 255);">
+        <h1 padding-top:50px;>Edit User</h1>
+        <form method="post" asp-controller="UserViews" asp-action="UserEdit" asp-route-id="@Model.userID">
+            <div asp-validation-summary="All" class="text-danger"></div>
+          <table style="padding-bottom:50px;">
+            <tbody>
+               <input type="text" name="id" asp-for="userID" hidden />
+               <input type="text" name="userContactsID" asp-for="userContactID" hidden />
+               <input type="text" name="password" asp-for="password" hidden/>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <td>Name</td>
+                <td><input type="text" name="nome" asp-for="nome" required/></td>
+                <td><span asp-validation-for="nome" class="text-danger"></span></td>
+              </tr>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <td>Email</td>
+                <td><input type="text" name="email" asp-for="email" required/></textarea></td>
+                <td><span asp-validation-for="email" class="text-danger"></span></td>
+              </tr>
+              
+              <tr style="background-color: rgb(255, 255, 255);">
+                <td>Address</td>
+                <td><input type="text" name="morada" asp-for="morada" required/></td>
+                <td><span asp-validation-for="morada" class="text-danger"></span></td>
+              </tr>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <td>BirthDate</td>
+                <td><input type="date" name="nascimento" asp-for="nascimento" required/></td>
+                <td><span asp-validation-for="nascimento" class="text-danger"></span></td>
+              </tr>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <td>Genero</td>
+                <td><input type="text" name="genero" asp-for="genero" required/></td>
+                <td><span asp-validation-for="genero" class="text-danger"></span></td>
+              </tr>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <td>Nif</td>
+                <td><input type="number" name="nif" asp-for="nif"  min="99999999" max="999999999" required/></td>
+                <td><span asp-validation-for="nif" class="text-danger"></span></td>
+              </tr>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <td>Telephone</td>
+                <td><input type="number" name="telemovel" asp-for="telemovel"  min="99999999" max="999999999" required/></td>
+                <td><span asp-validation-for="telemovel" class="text-danger"></span></td>
+              </tr>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <td>Is Admin?</td>
+                <td><input type="text" name="isAdmin" asp-for="isAdmin" required/></td>
+                <td><span asp-validation-for="isAdmin" class="text-danger"></span></td>
+              </tr>
+               <tr style="background-color: rgb(255, 255, 255);">
+                <td>Is Account Activated?</td>
+                <td><input type="text" name="isAccountActivated" asp-for="isAccountActivated" required/></td>
+                <td><span asp-validation-for="isAccountActivated" class="text-danger"></span></td>
+              </tr>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <td colspan="2">
+                    <button type="submit" class="btn btn-danger">Update</button>
+
+        </form>
+                    <a asp-controller="UserViews" asp-action="UsersList" class="btn btn-secondary ml-2">Users List</a>
+                    </td>
+              </tr>       
+            </tbody>
+          </table>
+      </div>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

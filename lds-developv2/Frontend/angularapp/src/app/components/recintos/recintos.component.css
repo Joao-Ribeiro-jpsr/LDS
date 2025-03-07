@@ -1,0 +1,12 @@
+.custom-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 50%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+}

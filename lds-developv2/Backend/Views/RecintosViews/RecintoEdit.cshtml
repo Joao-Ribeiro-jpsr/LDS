@@ -1,0 +1,76 @@
+﻿@model RecintoDesportivo
+@{
+    ViewData["Title"] = "RecintoEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/UserList.css" />
+</head>
+<div class="container">
+    <h1>Edit Event!</h1>
+    <form method="post" asp-controller="RecintosViews" asp-action="RecintoEdit" asp-route-id="@Model.recintoID">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <img src="~/@Model.imagem" alt="Imagem do Recinto" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-md-6">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td><input type="text" name="name" asp-for="name" required /></td>
+                            <td><span asp-validation-for="name" class="text-danger"></span></td>
+                        </tr>
+                        <input type="text" name="recintoID" asp-for="recintoID" hidden />  
+                        <input type="text" name="imagem" asp-for="imagem" hidden />  
+                        <tr style="background-color: white;">
+                            <td>Concelho</td>
+                            <td><input type="text" name="concelho" asp-for="concelho" required /></td>
+                            <td><span asp-validation-for="concelho" class="text-danger"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Latitude</td>
+                            <td><input type="text" name="latitude" asp-for="latitude" required /></td>
+                            <td><span asp-validation-for="latitude" class="text-danger"></span></td>
+                        </tr>
+                        <tr style="background-color: white;">
+                            <td>Longitude</td>
+                            <td><input type="text" name="longitude" asp-for="longitude" required /></td>
+                            <td><span asp-validation-for="longitude" class="text-danger"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Modalidade</td>
+                            <td><input type="text" name="modalidade" asp-for="modalidade" required /></td>
+                            <td><span asp-validation-for="modalidade" class="text-danger"></span></td>
+                        </tr>
+                        <tr style="background-color: white;">
+                            <td>Description</td>
+                            <td><input type="text" name="description" asp-for="description" required /></td>
+                            <td><span asp-validation-for="description" class="text-danger"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Preco</td>
+                            <td><input type="number" name="preco" asp-for="preco" min="0" required /></td>
+                            <td><span asp-validation-for="preco" class="text-danger"></span></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: white;">Contacto</td>
+                            <td><input type="text" name="contacto" asp-for="contacto" min="0" /></td>
+                            <td><span asp-validation-for="contacto" class="text-danger"></span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="background-color: white;"><button type="submit" class="btn btn-danger">Update</button></td>
+    </form> 
+                            <a asp-controller="RecintosViews" asp-action="RecintosList" class="btn btn-secondary ml-2">Recintos List</a>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>   
+</div>

@@ -1,0 +1,42 @@
+<app-nav-bar></app-nav-bar>
+<div class="container mt-5">
+  <h2 class="mb-4">Histórico de Reservas</h2>
+  <div class="custom-alert" *ngIf="message">
+    <p>{{ message }}</p>
+  </div>
+  <!-- Ciclo for para gerar cards com base na lista de reservas -->
+  <!-- Suponha que 'reservas' seja a lista de reservas vindas do seu componente Angular -->
+  <div *ngFor="let reserva of reservas.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize); let i = index" class="card mb-3">
+    <div class="row g-0">
+      <!-- Container da Imagem -->
+      <div class="col-md-3">
+        <div class="image-container" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('assets/{{recintos[i].imagem}}'); align-content: center; left: 42px; background-size: cover; background-position: center;"></div>
+      </div>
+      <!-- Container do Texto -->
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">{{recintos[i].name }}</h5>
+          <p class="card-text">Estado da Reserva: <span class="text-success">{{ reserva.estado }}</span></p>
+          <p class="card-text">Preço:{{ reserva.preco }} €</p>
+          <p class="card-text">Data: {{ reserva.dataInicial }}</p>
+          <p class="card-text">Hora: {{ reserva.horaJogo }}</p>
+        </div>
+      </div>
+      <!-- Container dos Botões -->
+      <div class="col-md-3 h-25" style="justify-content:center; align-items:center; display:flex; margin:auto;">
+        <div class="card-buttons  d-flex flex-column justify-content-between ">
+          <button class="btn btn-danger mb-2 btn-sm" *ngIf="reserva.estado == 'Pendente'" (click)="cancelarReserva(reserva.reservaID)">Cancelar reserva</button>
+          <button class="btn btn-primary mb-2 btn-sm" (click)="goToRecinto(recintos[i].recintoID)">Ver Mais</button>
+          <button class="btn btn-success btn-sm" *ngIf="reserva.estado == 'Pendente'" (click)="goToPayment(reserva.reservaID)">Ir para pagamento</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <mat-paginator [pageSize]="pageSize"
+                 [pageIndex]="pageIndex"
+                 [length]="pageLength"
+                 (page)="onPageChange($event)">
+  </mat-paginator>
+</div>
+<app-footer></app-footer>

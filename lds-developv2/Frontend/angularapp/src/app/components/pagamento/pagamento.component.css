@@ -1,0 +1,26 @@
+/* pagamento.component.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+payment-form{
+  text-align: left;
+  border-radius: 8px; /* Rounded corners for the entire form */
+  margin-bottom: 20px; /* Add margin between payment-form and metodo_pagamento */
+}
+
+.custom-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+}

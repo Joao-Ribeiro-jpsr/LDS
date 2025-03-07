@@ -1,0 +1,34 @@
+
+
+p{
+    display:flex;
+    align-content:center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.left-content {
+  width: 45%; /* Ajuste conforme necessário */
+}
+
+.right-content {
+  width: 45%; /* Ajuste conforme necessário */
+}
+
+.map-container {
+  margin-top: 20px; /* Adapte conforme necessário */
+}

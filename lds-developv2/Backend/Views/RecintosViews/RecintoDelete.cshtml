@@ -1,0 +1,54 @@
+﻿@model RecintoDesportivo
+@{
+    ViewData["Title"] = "RecintoDelete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form method="post" asp-action="RecintoDelete">
+    <div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header flex-column" style="align-items:center;">
+				<div class="icon-box">
+					<span class="material-symbols-outlined">
+					cancel
+					</span>
+				</div>						
+				<h4 class="modal-title w-100">Are you sure? </h4>	               
+			</div>
+			<div class="modal-body">
+				<p>Do you really want to delete this enclosure? This process cannot be undone.</p>
+				<p>To check:</p>
+				<div class="position-absolute top-0 start-100 translate-middle">
+					<img src="~/@Model.imagem" alt="Imagem" class="img-thumbnail">
+				</div>
+				<div class="mb-3">
+					<label asp-for="name" class="form-label"></label>
+					<input asp-for="name" class="form-control" disabled/>
+				</div>
+				<div class="mb-3">
+					<label asp-for="concelho" class="form-label"></label>
+					<input asp-for="concelho" class="form-control" disabled/>
+				</div>
+				<div class="mb-3">
+					<label asp-for="modalidade" class="form-label"></label>
+					<input asp-for="modalidade" class="form-control" disabled/>
+				</div>
+				<div class="mb-3">
+					<label asp-for="preco" class="form-label"></label>
+					<input asp-for="preco" class="form-control" disabled/>
+				</div>
+				<div class="mb-3">
+					<label asp-for="description" class="form-label"></label>
+					<input asp-for="description" class="form-control" disabled/>
+				</div>
+				<input asp-for="recintoID" hidden/>
+			</div>
+			<div class="modal-footer justify-content-center">				
+				<button type="submit" class="btn btn-danger">Delete</button>
+</form>
+				<button asp-controller="RecintosViews" asp-action="RecintosList" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+

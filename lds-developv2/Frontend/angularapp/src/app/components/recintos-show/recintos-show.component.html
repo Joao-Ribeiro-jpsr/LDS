@@ -1,0 +1,34 @@
+<app-nav-bar></app-nav-bar>
+
+<main *ngIf="recinto">
+  <div class="container-image" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('assets/{{recinto.imagem}}'); align-content: center; left: 42px; background-size: cover; background-position: center; margin:auto; width: 95%; height: 500px;">
+
+    <div class="container-text text-center text-light" style="padding-top:80px">
+      <h1>{{recinto.name}}</h1>
+      <span class="material-symbols-outlined text-danger">
+        push_pin
+      </span>
+      <p class="text-light">{{recinto.concelho}}</p>
+    </div>
+
+  </div>
+
+  <div class="button-container" style="padding-top:50px">
+    <button (click)="selectTab('reservas')">Reservas</button>
+    <button (click)="selectTab('descricao')">Descrição</button>
+    <button (click)="selectTab('avaliacoes')">Avaliações</button>
+  </div>
+
+  <div class="container" *ngIf="option === 'reservas'">
+    <app-reservas></app-reservas>
+  </div>
+  <div class="container" *ngIf="option === 'descricao'">
+    <app-recintos-descriptions></app-recintos-descriptions>
+  </div>
+  <div class="container" *ngIf="option === 'avaliacoes'">
+    <app-avaliacoes [recintoID]="recinto.recintoID"></app-avaliacoes>
+  </div>
+
+</main>
+
+<app-footer></app-footer>

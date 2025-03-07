@@ -1,0 +1,75 @@
+
+<div class="card mb-3">
+  <div class="card-body">
+    <form>
+      <div class="row">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Nome</h6>
+        </div>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="nome" [(ngModel)]="user.nome" value="{{user.nome}}">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Email</h6>
+        </div>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" name="email" [(ngModel)]="user.email" value="{{user.email}}" disabled>
+        </div>
+      </div>
+
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Género</h6>
+        </div>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="genero" [(ngModel)]="user.genero" value="{{user.genero}}">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Mobile</h6>
+        </div>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="telemovel" [(ngModel)]="user.telemovel" value="{{user.telemovel}}">
+        </div>
+      </div>
+      <hr>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Nascimento</h6>
+        </div>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="nascimento" [(ngModel)]="user.nascimento" value="{{user.nascimento}}">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <h6 class="mb-0">NIF</h6>
+        </div>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="nif" [(ngModel)]="user.nif" value="{{user.nif}}">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Address</h6>
+        </div>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="morada" [(ngModel)]="user.morada" value="{{user.morada}}">
+        </div>
+      </div>
+      <hr>
+      <div class="text-center mt-3">
+        <button class="btn btn-primary" (click)="saveChanges()">Salvar Alterações</button>
+      </div>
+    </form>
+  </div>
+</div>

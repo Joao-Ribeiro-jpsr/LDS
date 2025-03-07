@@ -1,0 +1,126 @@
+<app-nav-bar></app-nav-bar>
+
+<main *ngIf="user">
+  <div class="container">
+    <div class="main-body">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <!-- ... breadcrumb content -->
+      </nav>
+      <!-- /Breadcrumb -->
+
+      <div class="row gutters-sm">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle" width="150">
+                <div class="mt-3">
+                  <h4>{{user.nome}}</h4>
+                  <div class="row" *ngIf="!edit">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info" target="__blank" (click)="editUser(true)" style="background-color:#0d6efd; border-color:#0d6efd;">
+                        <span class="material-symbols-outlined">edit</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        
+
+
+     
+        <div class="col-md-8">
+          <div *ngIf="edit; else userProfile">
+            <app-editprofile></app-editprofile>
+
+          </div>
+
+          <ng-template #userProfile>
+            <div class="card mb-3">
+              <div class="card-body">
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.email}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Gender</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.genero}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Mobile</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.telemovel}}
+                  </div>
+                </div>
+                <hr>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Nascimento</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.nascimento}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">NIF</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.nif}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Address</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.morada}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Pontos</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.pontos}}
+                  </div>
+                </div>
+                <hr>
+
+              </div>
+            </div>
+          </ng-template>
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>

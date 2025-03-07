@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#buttons-container {
+  margin-top: 20px; /* Adapte conforme necessário para o espaçamento desejado */
+}
+
+.button-group button {
+  margin-right: 20px; /* Ajuste a margem conforme necessário */
+}
+
+  .button-group button:last-child {
+    margin-right: 0; /* Remove a margem direita do último botão */
+  }
+
+
+button {
+  margin-bottom: 20px; /* Espaçamento entre os botões */
+  padding: 10px;
+  background-color: #808080; /* Cor de fundo */
+  color: white;
+  border: inherit;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  button:hover {
+    background-color: #000000; /* Cor de fundo ao passar o mouse sobre o botão */
+  }
+
+.reserva-button {
+  margin-top: 10px; /* Espaçamento entre os botões e o botão de continuar */
+  margin-right: 15px;
+  padding: 10px 15px; /* Ajuste o padding conforme necessário */
+  background-color: #808080; /* Cor de fundo */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  .reserva-button:hover {
+    background-color: #000000; /* Cor de fundo ao passar o mouse sobre o botão de continuar */
+  }
+
+.continue-button {
+  margin-top: 10px; /* Espaçamento entre os botões e o botão de continuar */
+  padding: 10px 15px; /* Ajuste o padding conforme necessário */
+  background-color: #808080; /* Cor de fundo */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  .continue-button:hover {
+    background-color: #000000; /* Cor de fundo ao passar o mouse sobre o botão de continuar */
+  }
+
+.custom-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.button-group button.highlighted {
+  background-color: green; /* ou a cor desejada para realce */
+}

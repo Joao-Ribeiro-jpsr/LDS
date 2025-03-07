@@ -1,0 +1,39 @@
+<form>
+  <label for="datepicker">Escolha uma data:</label>
+  <input type="date" id="datepicker" name="datepicker" [(ngModel)]="selectedDate" (input)="onDateInput()" required [min]="minDate">
+</form>
+
+<div id="buttons-container" *ngIf="showButtons">
+
+  <div class="button-group">
+    <button *ngFor="let horario of recintoFakeAPI.horario"
+            (click)="handleButtonClick(horario)"
+            [ngClass]="{ 'highlighted': horario === selectedHour }">
+      {{ horario }}
+    </button>
+  </div>
+
+  <p>
+    <span class="material-symbols-outlined" style="color:green;">attach_money</span>
+    Preço: {{ recinto.preco }}€
+  </p>
+
+  <div class="container mt-3">
+    <p>Após a reserva, poderá escolher efetuar o pagamento agora, ou daqui a uma hora no Histórico de reservas.</p>
+
+    <div class="row">
+      <div class="col-md-6">
+        <button *ngIf="showContinueButton" class="btn btn-primary reserva-button" (click)="createReserva()">Reservar</button>
+
+        <div *ngIf="showContinuePaymentButton" class="mt-3">
+          <button class="btn btn-secondary continue-button" (click)="NoPayment()">Pagar Depois</button>
+          <button class="btn btn-secondary continue-button" (click)="goToPaymentPage()">Pagar Agora</button>
+        </div>
+      </div>
+    </div>
+    <div class="custom-alert" *ngIf="message">
+      <p>{{ message }}</p>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,66 @@
+
+<div class="custom-alert" *ngIf="message" style="padding-bottom: 50px;">
+  <p>{{ message }}</p>
+</div>
+
+<div class="container" *ngIf="userId" style="padding-top:50px;">
+  <button type="button" class="btn btn-primary" (click)="toggleForm()">Avaliar Recinto</button>
+</div>
+
+<div *ngIf="showForm" style="padding-top: 50px;">
+  <div class="form-group">
+    <label>Nome do Utilizador:</label>
+    <input type="text" class="form-control" id="floatingUsername" [(ngModel)]="username" placeholder="Username" required>
+  </div>
+
+  <div class="form-group">
+    <label for="rating">Avaliação: </label>
+    <div class="rating" id="ratingButtons">
+      <button (click)="setRating(1)" type="button" class="btn btn-outline-secondary">&#9733;</button>
+      <button (click)="setRating(2)" type="button" class="btn btn-outline-secondary">&#9733;</button>
+      <button (click)="setRating(3)" type="button" class="btn btn-outline-secondary">&#9733;</button>
+      <button (click)="setRating(4)" type="button" class="btn btn-outline-secondary">&#9733;</button>
+      <button (click)="setRating(5)" type="button" class="btn btn-outline-secondary">&#9733;</button>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="rating" id="ratingButtons" [innerHtml]="getSelectedStars(selectedRating)"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Descrição:</label>
+    <textarea class="form-control" id="description" name="description" [(ngModel)]="description" rows="3"></textarea>
+  </div>
+
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <button type="button" class="btn btn-primary" (click)="Rate()">Enviar Avaliação</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="d-flex flex-wrap">
+  <div class="card mb-3 me-3" style="width: 400px;" *ngFor="let rating of ratings; let i=index;">
+    <div class="row g-0">
+      <div class="col-md-5 d-flex align-items-center justify-content-center">
+        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Profile" class="img-fluid" style="height: 100px; object-fit: cover;">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">{{ rating.username }}</h5>
+          <div class="rating" [innerHTML]="getStars(rating.rating)"></div>
+          <p class="card-text">{{ rating.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

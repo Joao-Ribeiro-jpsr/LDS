@@ -1,0 +1,78 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "UsersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/UserList.css" />
+</head>
+
+<div class="container" style="background-color: rgb(255, 255, 255); padding-bottom:50px; box-shadow: 0px 8px 17px #858585, 0px 0px 2px #858585;">
+      <h3 style="padding-bottom: 70px;">Users List</h3>
+
+      <table class="list-table" style="padding-bottom:50px;" >
+        <thead>
+          <tr style="background-color: rgb(255, 255, 255);">
+            <th>Name</th>
+            <th>Is Admin?</th>
+            <th>Nif</th>
+            <th>Is Account Activated?</th>
+             <th></th>
+            <th>Activate/Deactivate</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+@foreach (User user in Model)
+{
+     
+
+            <tr style="background-color: rgb(255, 255, 255);">
+              <td><a  style="text-decoration: none;">@user.nome</a></td>
+              <td>@user.isAdmin</td>
+              <td>@user.nif</td>s
+              <td>@user.isAccountActivated</td>
+              <td></td>
+
+              <td style="text-align: center;">
+               <form method="post" asp-controller="UserViews" asp-action="DeactivateAccount" asp-route-id="@user.userID" style="width: fit-content; text-align: center;">
+                <button type="submit" style=" font-size: xx-small; text-align: center; margin: auto;">
+                  <span class="material-symbols-outlined" style="display: flex; justify-content: center; align-items: center; margin: auto; font-size:medium; color:black;">
+                    cancel
+                  </span>
+                </button>
+                </form>
+              </td>
+
+              <td style="text-align: center;">
+               <form method="get" asp-controller="UserViews" asp-action="UserEdit" asp-route-id="@user.userID" style="width: fit-content; text-align: center;">
+                <button type="submit" style="  background-color: rgb(240, 146, 6); font-size: xx-small; text-align: center; margin: auto;">
+                  <span class="material-symbols-outlined" style="display: flex; justify-content: center; align-items: center; margin: auto; font-size:medium; color:black;">
+                    edit
+                  </span>
+                </button>
+                </form>
+              </td>
+
+              <td style="text-align: center;">
+              <form method="get" asp-controller="UserViews" asp-action="UserDelete" asp-route-id="@user.userID" style="width: fit-content; text-align: center;">
+                <button type="submit"  style="background-color: rgba(208, 9, 9, 0.884); font-size: xx-small; text-align: center; margin: auto;">
+                  <span class="material-symbols-outlined" style="display: flex; justify-content: center; align-items: center; margin: auto; font-size:medium;">
+                    delete
+                  </span>
+                </button>
+                </form>
+              </td>
+
+            </tr>   
+}
+        </tbody>
+      </table> 
+      </div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

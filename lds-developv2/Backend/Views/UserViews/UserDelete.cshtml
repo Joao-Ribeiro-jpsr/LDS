@@ -1,0 +1,52 @@
+﻿@model User
+@{
+    ViewData["Title"] = "UserDelete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form method="post" asp-action="UserDelete">
+    <div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header flex-column" style="align-items:center;">
+				<div class="icon-box">
+					<span class="material-symbols-outlined">
+					cancel
+					</span>
+				</div>						
+				<h4 class="modal-title w-100">Are you sure? </h4>	               
+			</div>
+			<div class="modal-body">
+				<p>Do you really want to delete this user? This process cannot be undone.</p>
+				<p>To check:</p>
+				<div class="mb-3">
+					<label asp-for="nome" class="form-label"></label>
+					<input asp-for="nome" class="form-control" disabled/>
+				</div>
+				<div class="mb-3">
+					<label asp-for="email" class="form-label"></label>
+					<input asp-for="email" class="form-control" disabled/>
+				</div>
+				<div class="mb-3">
+					<label asp-for="morada" class="form-label"></label>
+					<input asp-for="morada" class="form-control" disabled/>
+				</div>
+				<div class="mb-3">
+					<label asp-for="telemovel" class="form-label"></label>
+					<input asp-for="telemovel" class="form-control" disabled/>
+				</div>
+				<div class="mb-3">
+					<label asp-for="nif" class="form-label"></label>
+					<input asp-for="nif" class="form-control" disabled/>
+				</div>
+				<input asp-for="userID" hidden/>
+			</div>
+			<div class="modal-footer justify-content-center">				
+				<button type="submit" class="btn btn-danger">Delete</button>
+</form>
+				<button asp-controller="UserViews" asp-action="UsersList" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+
+

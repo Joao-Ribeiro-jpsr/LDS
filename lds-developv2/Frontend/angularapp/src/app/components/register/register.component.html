@@ -1,0 +1,71 @@
+<app-nav-bar></app-nav-bar>
+<main class="form-signup w-100 m-auto">
+  <div class="container" style="padding-bottom:100px;">
+    <div class="content-wrapper">
+      <img src="assets/bola.png" alt="Futebol Image" class="left-image">
+      <div class="form-wrapper">
+        <h2>Friendly+</h2>
+        <h1 class="h3 mb-3 fw-normal">Create an Account</h1>
+        <div class="custom-alert" *ngIf="message">
+          <p>{{ message }}</p>
+        </div>
+        <br>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingUsername" [(ngModel)]="user.nome" placeholder="Username" required>
+          <label for="floatingUsername">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingRegEmail" [(ngModel)]="user.email" placeholder="name@example.com" required>
+          <label for="floatingRegEmail">Email</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingRegPassword" [(ngModel)]="user.password" placeholder="Password" required>
+          <label for="floatingRegPassword">Password</label>
+        </div>
+        <div class="form-floating">
+          <input type="date" class="form-control" id="floatingRegdate" [(ngModel)]="user.nascimento" name="birthdate" placeholder="25/03/2004" required>
+          <label for="floatingInput">Data de Nascimento</label>
+          <div class="invalid-feedback">Your birthdate is required.</div>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingRegmorada" [(ngModel)]="user.morada" name="address" placeholder="Rua nova circular..." required>
+          <label for="floatingInput">Morada</label>
+          <div class="invalid-feedback">Your address is required.</div>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingRegtelemovel" name="cell" [(ngModel)]="user.telemovel" min="99999999" max="999999999" placeholder="914032701" required>
+          <label for="floatingInput">Telemovel</label>
+          <div class="invalid-feedback">Your telephone number is required.</div>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingRegnif" name="nif" [(ngModel)]="user.nif" min="99999999" max="999999999" placeholder="244032701" required>
+          <label for="floatingInput">NIF</label>
+          <div class="invalid-feedback">Your nif is required.</div>
+        </div>
+        <div class="form-floating">
+          <select class="form-select" id="floatingRegGenero" name="genero" [(ngModel)]="user.genero" required>
+            <option value="" disabled selected>Seleciona o Genero</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="I">Indeterminado</option>
+          </select>
+          <label for="floatingRegGenero">Gender</label>
+          <div class="invalid-feedback">Please select your gender.</div>
+        </div>
+
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="agree-terms"> I agree to the terms required
+          </label>
+        </div>
+        <div class="button-div">
+          <button class="button-sign" (click)="register()"> Register </button>
+        </div>
+        <br>
+        <p>Already have an account? <a href="/login">Sign in!</a></p>
+      </div>
+    </div>
+  </div>
+</main>
+

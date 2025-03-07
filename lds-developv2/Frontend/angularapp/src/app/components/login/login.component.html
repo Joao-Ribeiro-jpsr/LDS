@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+<main class="form-signin w-100 m-auto">
+  <div class="container">
+    <div class="content-wrapper">
+      <img src="assets/bola.png" alt="Futebol Image" class="left-image">
+      <div class="form-wrapper">
+        <h2>Friendly+</h2>
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div class="custom-alert" *ngIf="message">
+          <p>{{ message }}</p>
+        </div>
+        <br>
+
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" [(ngModel)]="email" placeholder="name@example.com" required>
+          <label for="floatingInput">Email</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" [(ngModel)]="password" placeholder="Password" required>
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <div class="button-div">
+          <button class="button-sign" (click)="login()"> Login </button>
+        </div>
+        <br>
+        <p>Still don't have an account? <a href="/register">Create one!</a></p>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,46 @@
+
+
+<div *ngIf="recinto" class="container">
+  <h1 class="center-text">{{ recinto.name }}</h1>
+
+  <div class="content-container">
+    <div class="left-content">
+      <p>
+        <span class="material-symbols-outlined">sports_soccer</span>
+        Tipo de Modalidade: {{ recinto.modalidade }}
+      </p>
+      <p>
+        <span class="material-symbols-outlined" style="color:green;">attach_money</span>
+        Preço: {{ recinto.preco }}€
+      </p>
+      <p>
+        <span class="material-symbols-outlined" style="color:orange">
+          edit_note
+        </span>
+        {{recinto.description}}
+      </p>
+      <p>
+        <span class="material-symbols-outlined">schedule</span>
+        Horários disponíveis:
+      </p>
+    </div>
+
+    <div class="right-content">
+      <p>
+        <span class="material-symbols-outlined" style="color:red;">local_parking</span>
+        Estacionamento:
+      </p>
+      <p style="color:lightgray; font-family:'Times New Roman', Times, serif;">Gratuito</p>
+
+      <p style="align-content:center;">
+        <span class="material-symbols-outlined" style="color:dodgerblue">map</span>
+        Mapa : {{recinto.concelho}}
+      </p>
+      <div class="map-container">
+        <app-maps [name]="recinto.name" [latitude]="recinto.latitude" [longitude]="recinto.longitude"></app-maps>
+      </div>
+    </div>
+  </div>
+</div>
+
+

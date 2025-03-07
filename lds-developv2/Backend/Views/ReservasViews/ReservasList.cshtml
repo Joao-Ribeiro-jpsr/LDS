@@ -1,0 +1,60 @@
+﻿@model List<Reserva>
+@{
+    ViewData["Title"] = "ReservasList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/UserList.css" />
+</head>
+
+<div class="container" style="background-color: rgb(255, 255, 255); padding-bottom:50px; box-shadow: 0px 8px 17px #858585, 0px 0px 2px #858585;">
+      <h3 style="padding-bottom: 70px;">Reservas List</h3>
+      <table class="list-table" style="width: 70%; padding-bottom:50px;" >
+        <thead>
+          <tr style="background-color: rgb(255, 255, 255);">
+            <th>ReservaID</th>
+            <th>UserID</th>
+            <th>RecintoID</th>
+            <th>Estado</th>
+            <th>Preco</th>
+            <th></th>
+            <th>Cancelar Reserva</th>
+          </tr>
+        </thead>
+        <tbody>
+@foreach (Reserva reserva in Model)
+{
+     
+
+            <tr style="background-color: rgb(255, 255, 255);">
+              <td><a  style="text-decoration: none;">@reserva.reservaID</a></td>
+              <td>@reserva.userID</td>
+              <td>@reserva.recintoID</td>
+              <td>@reserva.estado</td>
+              <td>@reserva.preco</td>
+              <td></td>
+             @if (@reserva.estado == "Pendente")
+                {
+                    <td style="text-align: center;">
+                        <form method="post" asp-controller="ReservasViews" asp-action="CancelReserva" asp-route-id="@reserva.reservaID" style="width: fit-content; text-align: center;">
+                            <button type="submit" style="background-color: rgba(208, 9, 9, 0.884); font-size: xx-small; text-align: center; margin: auto;">
+                                <span class="material-symbols-outlined" style="display: flex; justify-content: center; align-items: center; margin: auto; font-size: medium;">
+                                    Cancel
+                                </span>
+                            </button>
+                        </form>
+                    </td>
+                }
+
+            </tr>   
+}
+        </tbody>
+      </table> 
+      </div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

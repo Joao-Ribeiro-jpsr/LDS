@@ -1,0 +1,27 @@
+<!-- pagamento.component.html -->
+
+<app-nav-bar></app-nav-bar>
+
+<div class="payment-form">
+  <div class="row">
+    <div class="col">
+      <div class="selected-data-hora border p-3">
+        <p>Data Selecionada: {{ reserva?.dataInicial }}</p>
+        <p>Hora Selecionada: {{ reserva?.horaJogo }}</p>
+        <p>Total: {{ mostrarTotal() }}</p>
+        <button type="button" class="btn btn-primary" (click)="utilizarPontos()">Deseja utilizar os seus pontos?</button>
+        <p></p>
+        <p>Método de Pagamento:</p>
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="custom-alert" *ngIf="message">
+    <p>{{ message }}</p>
+  </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="pagamentos.component.ts"></script>
